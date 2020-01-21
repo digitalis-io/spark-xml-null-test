@@ -1,0 +1,15 @@
+<profiles>
+    <profile>
+        <firstname>Joe</firstname>
+        <surname>Schmo</surname>
+        <address>
+            <line1>10 Mill Lane</line1>
+            <line2></line2>
+            <line3></line3>
+            <city>Stanton Town</city>
+            <county>Gloucestershire</county>
+            <postalcode>GL14 6RU</postalcode>
+            <country>United Kingdom</country>
+        </address>
+    </profile>
+</profiles>
