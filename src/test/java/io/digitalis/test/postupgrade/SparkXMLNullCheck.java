@@ -63,25 +63,22 @@ public class SparkXMLNullCheck {
 
     private StructType getSchema() {
 
-        List<StructField> addressFields = new ArrayList<>();
-        addressFields.add(DataTypes.createStructField("line1",      DataTypes.StringType,true));
-        addressFields.add(DataTypes.createStructField("line2",      DataTypes.StringType,false));
-        addressFields.add(DataTypes.createStructField("line3",      DataTypes.StringType,true));
-        addressFields.add(DataTypes.createStructField("city",       DataTypes.StringType,true));
-        addressFields.add(DataTypes.createStructField("county",     DataTypes.StringType,true));
-        addressFields.add(DataTypes.createStructField("postalcode", DataTypes.StringType,true));
-        addressFields.add(DataTypes.createStructField("country",    DataTypes.StringType,true));
+        StructType addressType = new StructType()
+                .add("city", DataTypes.StringType)
+                .add("country", DataTypes.StringType)
+                .add("county", DataTypes.StringType)
+                .add("line1", DataTypes.StringType)
+                .add("line2", DataTypes.StringType)
+                .add("line3", DataTypes.StringType)
+                .add("postalcode", DataTypes.StringType);
 
-        List<StructField> profile = new ArrayList<>();
-        profile.add(DataTypes.createStructField("firstname", DataTypes.StringType, true));
-        profile.add(DataTypes.createStructField("surname", DataTypes.StringType, true));
-        profile.add(DataTypes.createStructField("address", DataTypes.createStructType(addressFields), true));
 
-        StructField root = DataTypes.createStructField("profile",DataTypes.createStructType(profile), true);
+        StructType profileType = new StructType()
+                .add("address", addressType)
+                .add("firstname", DataTypes.StringType)
+                .add("surname", DataTypes.StringType);
 
-        StructType schema = DataTypes.createStructType(new StructField[]{root});
-
-        return schema;
+        return new StructType().add("profile", profileType);
 
     }
 

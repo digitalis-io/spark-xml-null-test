@@ -47,7 +47,7 @@
 
     <profiles>
         <profile>
-            <id>sparkxml_3_3_0</id>
+            <id>spark-xml_0.3.3</id>
             <build>
                 <plugins>
                     <plugin>
@@ -80,7 +80,7 @@
             </dependencies>
         </profile>
         <profile>
-            <id>sparkxml_5_0_0</id>
+            <id>spark-xml_0.5.0</id>
             <build>
                 <plugins>
                     <plugin>
